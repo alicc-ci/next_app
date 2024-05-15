@@ -16,7 +16,7 @@ class News extends StatelessWidget {
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
-                child: const Text('详细'),
+                child: const Text('详细！！'),
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) {
                   return NewsDetailPage(
@@ -29,6 +29,8 @@ class News extends StatelessWidget {
       ),
     );
   }
+
+
 
 //具体的列表内容的构造
   Widget buildNewsList() {
