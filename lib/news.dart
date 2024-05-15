@@ -16,7 +16,7 @@ class News extends StatelessWidget {
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
-                child: const Text('详细readme'),
+                child: const Text('详细'),
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) {
                   return NewsDetailPage(
