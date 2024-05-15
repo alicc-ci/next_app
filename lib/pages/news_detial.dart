@@ -24,7 +24,7 @@ class NewsDetailPage extends StatelessWidget {
                   backgroundColor:
                       MaterialStatePropertyAll(Theme.of(context).primaryColor)),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context,true);
               },
               child: const Text('返回'))
         ],

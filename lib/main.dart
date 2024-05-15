@@ -17,7 +17,7 @@ class Myapp extends StatefulWidget {
 }
 
 class _MyappState extends State<Myapp> {
-  List<String> news = [];
+  List<String> news = ['first'];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

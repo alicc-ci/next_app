@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:next_app/pages/news_detial.dart';
 
 class News extends StatelessWidget {
-  final List<Map<dynamic, dynamic>> news;
-  News([this.news = const []]);
+  final List<Map<dynamic, dynamic>> news ;
+  
+  final Function deleteNews;
+  News({required this.news, required this.deleteNews});
 
 //生成图片
   Widget _buildNewItem(context, index) {
@@ -11,20 +13,27 @@ class News extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset('assets/newsl.jpg.png'),
-          Text(news[index]['title'],),
+          Text(
+            news[index]['title'],
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               TextButton(
-                child: const Text('详细'),
-                onPressed: () => Navigator.push(context,
-                    MaterialPageRoute(builder: (context) {
-                  return NewsDetailPage(
-                    title: news[index]['title'],
-                    imageUrl: news[index]['image'],
-                  );
-                })),
-              )
+                  child: const Text('详细'),
+                  onPressed: () => Navigator.push<bool?>(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return NewsDetailPage(
+                            title: news[index]['title'],
+                            imageUrl: news[index]['image'],
+                          );
+                        }),
+                      ).then((value) {
+                        if (value??false) {
+                          deleteNews(index);
+                        }
+                      }))
             ],
           )
         ],
