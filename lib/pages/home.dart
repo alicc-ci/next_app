@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('资讯标题'),
       ),
-      body: NewsManager(),
+      body: NewsManager(startingNews: const {},),
     );
   }
 }

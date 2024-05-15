@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class NewsDetailPage extends StatelessWidget {
+  final String title;
+  final String imageUrl;
+  const NewsDetailPage({super.key, required this.title, required this.imageUrl});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

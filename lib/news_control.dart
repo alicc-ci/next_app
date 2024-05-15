@@ -16,7 +16,7 @@ class NewsControl extends StatelessWidget {
                     MaterialStatePropertyAll(Theme.of(context).primaryColor)),
             child: const Text('添加资讯'),
             onPressed: () {
-              addNews('new');
+              addNews({'title': 'other', 'image': 'assets/newsl.jpg.png'});
             }));
   }
 }

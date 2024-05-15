@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:next_app/pages/news_detial.dart';
 
 class News extends StatelessWidget {
-  final List<String> news;
+  final List<Map<dynamic, dynamic>> news;
   News([this.news = const []]);
 
 //生成图片
@@ -11,7 +11,7 @@ class News extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset('assets/newsl.jpg.png'),
-          Text(news[index]),
+          Text(news[index]['title'],),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -20,6 +20,8 @@ class News extends StatelessWidget {
                 onPressed: () => Navigator.push(context,
                     MaterialPageRoute(builder: (context) {
                   return NewsDetailPage(
+                    title: news[index]['title'],
+                    imageUrl: news[index]['image'],
                   );
                 })),
               )
@@ -29,8 +31,6 @@ class News extends StatelessWidget {
       ),
     );
   }
-
-
 
 //具体的列表内容的构造
   Widget buildNewsList() {

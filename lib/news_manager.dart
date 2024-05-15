@@ -3,23 +3,25 @@ import 'package:next_app/news_control.dart';
 import './news.dart';
 
 class NewsManager extends StatefulWidget {
-  final String startingNews;
-  NewsManager({this.startingNews = ''});
+  final Map startingNews;
+  NewsManager({required this.startingNews  });
+  @override
+  // ignore: library_private_types_in_public_api
   _NewsManagerState createState() => _NewsManagerState();
 }
 
 class _NewsManagerState extends State<NewsManager> {
-  final List<String> _news = [];
+   final List<Map<dynamic,dynamic>> _news = [];
 
   @override
   void initState() {
     super.initState();
-    if (widget.startingNews != '') {
+    if (widget.startingNews != {}) {
       _news.add(widget.startingNews);
     }
   }
 
-  void _addNews(String news) {
+  void _addNews(Map news) {
     setState(() {
       _news.add(news);
     });
